@@ -7,10 +7,8 @@ import numpy as np  # 数据处理的库numpy
 import cv2          # 图像处理的库OpenCv
 import os
 
-# 读取图像的路径
+# 读取图像的路径，当前目录下
 path_read = "./"
-
-
 filename=[]
 for fn in os.listdir(path_read):
 	if fn[-4:]=='.jpg'  or fn[-4:]=='.JPG':
@@ -31,10 +29,9 @@ def clear_images():
 
 clear_images()
 
-
 # Dlib 正向人脸检测器
 detector = dlib.get_frontal_face_detector()
-fn_i=0
+fn_i=0 #人脸编号
 for fn in filename :
 	img = cv2.imread(path_read+fn)
 	# Dlib 检测
